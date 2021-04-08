@@ -1,3 +1,4 @@
+import 'package:deep_mobile_learning/model/blog_post.dart';
 import 'package:flutter/material.dart';
 import 'blog_post_modify.dart';
 
