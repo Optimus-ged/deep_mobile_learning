@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'blog_post_modify.dart';
 
 class BlogPostList extends StatelessWidget {
   String formatDate(DateTime date) {
