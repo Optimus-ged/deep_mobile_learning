@@ -2,6 +2,68 @@ import 'package:flutter/material.dart';
 import 'blog_post_modify.dart';
 
 class BlogPostList extends StatelessWidget {
+  final blogPosts = [
+    new BlogPost(
+        id: 1,
+        author: "Author",
+        content: "author author author author author author author author ",
+        publishDate: DateTime.now(),
+        title: "Post 1"),
+    new BlogPost(
+        id: 2,
+        author: "Author",
+        content: "author author author author author author author author ",
+        publishDate: DateTime.now(),
+        title: "Post 2"),
+    new BlogPost(
+        id: 3,
+        author: "Author",
+        content: "author author author author author author author author ",
+        publishDate: DateTime.now(),
+        title: "Post 3"),
+    new BlogPost(
+        id: 4,
+        author: "Author",
+        content: "author author author author author author author author ",
+        publishDate: DateTime.now(),
+        title: "Post 4"),
+    new BlogPost(
+        id: 5,
+        author: "Author",
+        content: "author author author author author author author author ",
+        publishDate: DateTime.now(),
+        title: "Post 5"),
+    new BlogPost(
+        id: 6,
+        author: "Author",
+        content: "author author author author author author author author ",
+        publishDate: DateTime.now(),
+        title: "Post 6"),
+    new BlogPost(
+        id: 7,
+        author: "Author",
+        content: "author author author author author author author author ",
+        publishDate: DateTime.now(),
+        title: "Post 7"),
+    new BlogPost(
+        id: 8,
+        author: "Author",
+        content: "author author author author author author author author ",
+        publishDate: DateTime.now(),
+        title: "Post 8"),
+    new BlogPost(
+        id: 9,
+        author: "Author",
+        content: "author author author author author author author author ",
+        publishDate: DateTime.now(),
+        title: "Post 9"),
+    new BlogPost(
+        id: 10,
+        author: "Author",
+        content: "author author author author author author author author ",
+        publishDate: DateTime.now(),
+        title: "Post 10"),
+  ];
   String formatDate(DateTime date) {
     return "${date.day}/${date.month}/${date.year}";
   }
