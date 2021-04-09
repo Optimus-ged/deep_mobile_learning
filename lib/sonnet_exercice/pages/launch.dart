@@ -3,23 +3,10 @@ import 'package:deep_mobile_learning/sonnet_exercice/pages/read.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Launch extends StatefulWidget {
-  @override
-  _LaunchState createState() => _LaunchState();
-}
-
-class _LaunchState extends State<Launch> {
-  ReaderBloc readerBloc;
-
-  @override
-  void dispose() {
-    readerBloc.dispose();
-    super.dispose();
-  }
-
+class Launch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    readerBloc = Provider.of<ReaderBloc>(context);
+    var readerBloc = Provider.of<ReaderBloc>(context);
     return Scaffold(
       body: Center(
         child: Column(

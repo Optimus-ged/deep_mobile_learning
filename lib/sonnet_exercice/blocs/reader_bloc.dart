@@ -8,9 +8,9 @@ class ReaderBloc {
   final _dartStream = StreamController<String>();
   final _publishStream = PublishSubject<String>();
   final _behaviorStream = BehaviorSubject<String>();
-  final _replayStream = ReplaySubject<String>();
+  final _replayStream = ReplaySubject<String>(maxSize: 5);
 
-  Stream<String> get dartStream => _dartStream.stream;
+  Stream<String> get dartStream => _dartStream.stream.asBroadcastStream();
   Stream<String> get publishStream => _publishStream.stream;
   Stream<String> get behaviorStream => _behaviorStream.stream;
   Stream<String> get replayStream =>
@@ -25,6 +25,13 @@ class ReaderBloc {
 
     for (var i = 1; i <= 30; i++) {
       print("$i Optimus ged");
+
+      _dartStream.sink.add("$i Optimus ged");
+      _publishStream.add("$i Optimus ged");
+      _behaviorStream.add("$i Optimus ged");
+      _replayStream.add("$i Optimus ged");
+
+      await Future.delayed(Duration(milliseconds: 4500));
     }
   }
 

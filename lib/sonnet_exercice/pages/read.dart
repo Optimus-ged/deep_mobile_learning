@@ -1,8 +1,11 @@
+import 'package:deep_mobile_learning/sonnet_exercice/blocs/reader_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Read extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var readerBloc = Provider.of<ReaderBloc>(context);
     return DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -17,24 +20,53 @@ class Read extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(children: [
-          Scaffold(body: tabBody(desc: "Standard dart stream controller")),
-          Scaffold(body: tabBody(desc: "Publish controller")),
-          Scaffold(body: tabBody(desc: "Behavior controller")),
-          Scaffold(body: tabBody(desc: "Replay controller")),
-        ]),
+        body: Padding(
+          padding: const EdgeInsets.only(left: 30.0),
+          child: TabBarView(children: [
+            Scaffold(
+              body: tabBody(
+                stream: readerBloc.dartStream,
+                desc: "Standard dart stream controller",
+              ),
+            ),
+            Scaffold(
+              body: tabBody(
+                stream: readerBloc.publishStream,
+                desc: "Publish controller",
+              ),
+            ),
+            Scaffold(
+              body: tabBody(
+                stream: readerBloc.behaviorStream,
+                desc: "Behavior controller",
+              ),
+            ),
+            Scaffold(
+              body: tabBody(
+                stream: readerBloc.replayStream,
+                desc: "Replay controller",
+              ),
+            ),
+          ]),
+        ),
       ),
     );
   }
 }
 
-Widget tabBody({String desc}) {
+Widget tabBody({Stream<String> stream, String desc}) {
   return ListView(
     children: [
       Text("$desc"),
       Divider(color: Colors.green),
       SizedBox(height: 50),
-      Text("Afficher du texte ici")
+      StreamBuilder<Object>(
+          stream: stream,
+          builder: (context, snapshot) {
+            return Text(
+              snapshot.hasData ? "${snapshot.data}" : "Loading...",
+            );
+          })
     ],
   );
 }
