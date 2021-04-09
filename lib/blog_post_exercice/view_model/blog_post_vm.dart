@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:deep_mobile_learning/model/blog_post.dart';
+import 'package:deep_mobile_learning/blog_post_exercice/model/blog_post.dart';
 
 /*
 final blogPosts = ;

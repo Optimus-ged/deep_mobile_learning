@@ -1,5 +1,6 @@
-import 'package:deep_mobile_learning/model/blog_post.dart';
-import 'package:deep_mobile_learning/view_model/blog_post_vm.dart';
+
+import 'package:deep_mobile_learning/blog_post_exercice/model/blog_post.dart';
+import 'package:deep_mobile_learning/blog_post_exercice/view_model/blog_post_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'blog_post_modify.dart';
