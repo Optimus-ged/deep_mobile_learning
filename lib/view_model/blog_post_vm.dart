@@ -96,8 +96,15 @@ class BlogPostViewModel {
     );
   }
 
-  void addBlogPost({BlogPost blogPost}) {
+  void addBlogPost(blogPost) {
     _blogPost.add(blogPost);
+    _inBlogPost.add(_blogPost);
+  }
+
+  void updatePost(BlogPost blogPost) {
+    final index =
+        _blogPost.indexOf(_blogPost.where((bp) => bp.id == blogPost.id).first);
+    _blogPost[index] = blogPost;
     _inBlogPost.add(_blogPost);
   }
 }

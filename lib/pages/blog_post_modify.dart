@@ -61,7 +61,7 @@ class BlogPostModify extends StatelessWidget {
               hoverColor: Colors.green,
               onTap: () {
                 final blogPost = BlogPost(
-                  id: Random().nextInt(1000),
+                  id: isEditing ? this.blogPost.id : Random().nextInt(1000),
                   title: "${_titleEditingController.text}",
                   content: "${_contentEditingController.text}",
                   author: "${_authoEditingController.text}",
@@ -69,9 +69,10 @@ class BlogPostModify extends StatelessWidget {
                 );
                 if (isEditing) {
                   // Editing
+                  _vm.updatePost(blogPost);
                 } else {
                   // Creating
-                  _vm.addBlogPost(blogPost: blogPost);
+                  _vm.addBlogPost(blogPost);
                 }
                 Navigator.of(context).pop();
               },
