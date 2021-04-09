@@ -19,27 +19,32 @@ class Read extends StatelessWidget {
         ),
         body: TabBarView(children: [
           Scaffold(
-            body: Center(
-              child: Text("tab 1"),
-            ),
+            body: tabBody(desc: "Standard dart stream controller"),
           ),
           Scaffold(
-            body: Center(
-              child: Text("tab 2"),
-            ),
+            body: tabBody(desc: "Standard dart stream controller"),
           ),
           Scaffold(
-            body: Center(
-              child: Text("tab 3"),
-            ),
+            body: tabBody(desc: "Standard dart stream controller"),
           ),
           Scaffold(
-            body: Center(
-              child: Text("tab 4"),
-            ),
+            body: tabBody(desc: "Standard dart stream controller"),
           ),
         ]),
       ),
     );
   }
+}
+
+Widget tabBody({String desc}) {
+  return ListView(
+    children: [
+      Text("$desc"),
+      Divider(
+        color: Colors.green,
+      ),
+      SizedBox(height: 50),
+      Text("Afficher du texte ici")
+    ],
+  );
 }
