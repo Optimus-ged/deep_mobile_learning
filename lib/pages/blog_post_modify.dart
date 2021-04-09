@@ -107,13 +107,17 @@ Widget myTextField({TextEditingController controller, @required hint}) {
   return Padding(
     padding: const EdgeInsets.only(bottom: 15, left: 30, right: 30),
     child: Container(
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(30)),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextField(
+        style: TextStyle(color: Colors.white),
         controller: controller,
         cursorColor: Colors.green,
-        decoration: InputDecoration.collapsed(hintText: hint),
+        decoration: InputDecoration.collapsed(
+          hintText: hint,
+          hintStyle: TextStyle(color: Colors.grey),
+          fillColor: Colors.green,
+          hoverColor: Colors.green,
+        ),
       ),
     ),
   );

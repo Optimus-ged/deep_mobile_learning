@@ -96,11 +96,13 @@ class BlogPostViewModel {
     );
   }
 
+  // Adding new Data
   void addBlogPost(blogPost) {
     _blogPost.add(blogPost);
     _inBlogPost.add(_blogPost);
   }
 
+  // Updating existing data
   void updateBlogPost(BlogPost blogPost) {
     final index =
         _blogPost.indexOf(_blogPost.where((bp) => bp.id == blogPost.id).first);
@@ -108,8 +110,15 @@ class BlogPostViewModel {
     _inBlogPost.add(_blogPost);
   }
 
+  // Deleting an Existing data
   void deleteBlogPost(int id) {
     _blogPost.removeWhere((bp) => bp.id == id);
     _inBlogPost.add(_blogPost);
+  }
+
+  // This method close dispose our stream\
+  // but we do not use it for the moment
+  void dispose() {
+    _blogPostListController.close();
   }
 }
