@@ -10,10 +10,10 @@ class Read extends StatelessWidget {
           title: Text("Sonnet Exercise"),
           bottom: TabBar(
             tabs: [
-              Text("tab 1"),
-              Text("tab 2"),
-              Text("tab 3"),
-              Text("tab 4"),
+              Text("Stream"),
+              Text("Publish"),
+              Text("Behavior"),
+              Text("Replay"),
             ],
           ),
         ),
