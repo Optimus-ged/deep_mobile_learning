@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:deep_mobile_learning/model/blog_post.dart';
+import 'package:deep_mobile_learning/view_model/blog_post_vm.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 class BlogPostModify extends StatelessWidget {
   // Blogpost model
@@ -11,6 +15,7 @@ class BlogPostModify extends StatelessWidget {
   final _authoEditingController = TextEditingController();
 
   bool get isEditing => blogPost != null;
+  BlogPostViewModel get _vm => GetIt.I<BlogPostViewModel>();
 
   BlogPostModify({this.blogPost}) {
     if (isEditing) {
@@ -55,7 +60,19 @@ class BlogPostModify extends StatelessWidget {
               splashColor: Colors.green,
               hoverColor: Colors.green,
               onTap: () {
-                print("tapeeeeeeee");
+                final blogPost = BlogPost(
+                  id: Random().nextInt(1000),
+                  title: "${_titleEditingController.text}",
+                  content: "${_contentEditingController.text}",
+                  author: "${_authoEditingController.text}",
+                  publishDate: DateTime.now(),
+                );
+                if (isEditing) {
+                  // Editing
+                } else {
+                  // Creating
+                  _vm.addBlogPost(blogPost: blogPost);
+                }
                 Navigator.of(context).pop();
               },
               child: Padding(
