@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:deep_mobile_learning/model/blog_post.dart';
 import 'package:deep_mobile_learning/view_model/blog_post_vm.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +27,7 @@ class BlogPostModify extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         elevation: 0.0,
         title: Text(isEditing ? "Edit blog post" : "Creating Blog post"),
@@ -92,7 +91,7 @@ class BlogPostModify extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -106,15 +105,15 @@ class BlogPostModify extends StatelessWidget {
 
 Widget myTextField({TextEditingController controller, @required hint}) {
   return Padding(
-    padding: const EdgeInsets.only(bottom: 15),
+    padding: const EdgeInsets.only(bottom: 15, left: 30, right: 30),
     child: Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(30)),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextField(
         controller: controller,
         cursorColor: Colors.green,
-        decoration: InputDecoration(
-          hintText: "$hint",
-        ),
+        decoration: InputDecoration.collapsed(hintText: hint),
       ),
     ),
   );
