@@ -13,6 +13,7 @@ class Launch extends StatelessWidget {
             ),
             InkWell(
               onTap: () {},
+              borderRadius: BorderRadius.circular(30),
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 6, horizontal: 40),
                 child: Text(
