@@ -50,7 +50,7 @@ class BlogPostList extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (_) => BlogPostModify(),
+                          builder: (_) => BlogPostModify(blogPost: blogPost,),
                         ),
                       );
                     },

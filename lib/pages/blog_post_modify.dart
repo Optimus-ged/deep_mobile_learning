@@ -1,6 +1,13 @@
+import 'package:deep_mobile_learning/model/blog_post.dart';
 import 'package:flutter/material.dart';
 
 class BlogPostModify extends StatelessWidget {
+  final BlogPost blogPost;
+
+  bool get isEditing => blogPost != null;
+
+  BlogPostModify({this.blogPost});
+
   final _titleEditingController = TextEditingController();
   final _contentEditingController = TextEditingController();
   final _authoEditingController = TextEditingController();
@@ -10,11 +17,11 @@ class BlogPostModify extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        title: Text("Edit blog post"),
+        title: Text(isEditing ? "Edit blog post" : "Creating Blog post"),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: Icon(Icons.delete),
+            child: isEditing ? Icon(Icons.delete) : Container(),
           )
         ],
       ),
