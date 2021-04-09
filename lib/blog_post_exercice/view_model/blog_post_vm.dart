@@ -1,10 +1,6 @@
 import 'dart:async';
 import 'package:deep_mobile_learning/blog_post_exercice/model/blog_post.dart';
 
-/*
-final blogPosts = ;
-*/
-
 class BlogPostViewModel {
   StreamController<List<BlogPost>> _blogPostListController =
       StreamController.broadcast();
