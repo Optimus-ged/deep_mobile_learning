@@ -1,9 +1,25 @@
+import 'package:deep_mobile_learning/sonnet_exercice/blocs/reader_bloc.dart';
 import 'package:deep_mobile_learning/sonnet_exercice/pages/read.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class Launch extends StatelessWidget {
+class Launch extends StatefulWidget {
+  @override
+  _LaunchState createState() => _LaunchState();
+}
+
+class _LaunchState extends State<Launch> {
+  ReaderBloc readerBloc;
+
+  @override
+  void dispose() {
+    readerBloc.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    readerBloc = Provider.of<ReaderBloc>(context);
     return Scaffold(
       body: Center(
         child: Column(
@@ -17,8 +33,12 @@ class Launch extends StatelessWidget {
             SizedBox(height: 20),
             InkWell(
               onTap: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => Read()));
+                readerBloc.startReading();
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => Read(),
+                  ),
+                );
               },
               borderRadius: BorderRadius.circular(30),
               child: Container(

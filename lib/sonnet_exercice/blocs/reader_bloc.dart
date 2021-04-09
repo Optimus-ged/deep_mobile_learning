@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
+// import 'dart:convert';
+// import 'dart:io';
 
 import 'package:rxdart/rxdart.dart';
 
@@ -10,23 +10,28 @@ class ReaderBloc {
   final _behaviorStream = BehaviorSubject<String>();
   final _replayStream = ReplaySubject<String>();
 
+  Stream<String> get dartStream => _dartStream.stream;
+  Stream<String> get publishStream => _publishStream.stream;
+  Stream<String> get behaviorStream => _behaviorStream.stream;
+  Stream<String> get replayStream =>
+      _replayStream.stream.map((event) => _replayStream.values.join("\n"));
+
+  void startReading() async {
+    // var content = await File("./monFichier.txt")
+    //     .openRead()
+    //     .transform(utf8.decoder)
+    //     .transform(LineSplitter())
+    //     .toList();
+
+    for (var i = 1; i <= 30; i++) {
+      print("$i Optimus ged");
+    }
+  }
+
   void dispose() {
     _dartStream.close();
     _publishStream.close();
     _behaviorStream.close();
     _replayStream.close();
-  }
-
-  void startReading() async {
-    var content = await File("F:\projects\flutter\deep_mobile_learning\assets\monFichier.txt")
-        .openRead()
-        .transform(utf8.decoder)
-        .transform(LineSplitter())
-        .toList(); 
-
-    for (String l in content) {
-      print("$l");
-      await Future.delayed(Duration(seconds: 3));
-    }
   }
 }
