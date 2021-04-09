@@ -11,7 +11,13 @@ class BlogPostViewModel {
   Stream<List<BlogPost>> get outBlogPost => _blogPostListController.stream;
   Sink<List<BlogPost>> get _inBlogPost => _blogPostListController.sink;
 
+  List<BlogPost> _blogPost;
+
   BlogPostViewModel() {
+    outBlogPost.listen((data) {
+      _blogPost = data;
+    });
+
     Future.delayed(Duration(seconds: 3)).then(
       (value) => _inBlogPost.add(
         [
@@ -88,5 +94,10 @@ class BlogPostViewModel {
         ],
       ),
     );
+  }
+
+  void addBlogPost({BlogPost blogPost}) {
+    _blogPost.add(blogPost);
+    _inBlogPost.add(_blogPost);
   }
 }

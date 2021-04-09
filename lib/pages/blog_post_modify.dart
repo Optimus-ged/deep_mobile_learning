@@ -2,19 +2,28 @@ import 'package:deep_mobile_learning/model/blog_post.dart';
 import 'package:flutter/material.dart';
 
 class BlogPostModify extends StatelessWidget {
+  // Blogpost model
   final BlogPost blogPost;
 
-  bool get isEditing => blogPost != null;
-
-  BlogPostModify({this.blogPost});
-
+  // Declaring all the editing controller
   final _titleEditingController = TextEditingController();
   final _contentEditingController = TextEditingController();
   final _authoEditingController = TextEditingController();
 
+  bool get isEditing => blogPost != null;
+
+  BlogPostModify({this.blogPost}) {
+    if (isEditing) {
+      _titleEditingController.text = blogPost.title;
+      _contentEditingController.text = blogPost.content;
+      _authoEditingController.text = blogPost.author;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0.0,
         title: Text(isEditing ? "Edit blog post" : "Creating Blog post"),
@@ -47,6 +56,7 @@ class BlogPostModify extends StatelessWidget {
               hoverColor: Colors.green,
               onTap: () {
                 print("tapeeeeeeee");
+                Navigator.of(context).pop();
               },
               child: Padding(
                 padding:
@@ -74,6 +84,7 @@ Widget myTextField({TextEditingController controller, @required hint}) {
     child: Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
+        controller: controller,
         cursorColor: Colors.green,
         decoration: InputDecoration(
           hintText: "$hint",
