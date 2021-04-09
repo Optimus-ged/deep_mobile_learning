@@ -101,10 +101,15 @@ class BlogPostViewModel {
     _inBlogPost.add(_blogPost);
   }
 
-  void updatePost(BlogPost blogPost) {
+  void updateBlogPost(BlogPost blogPost) {
     final index =
         _blogPost.indexOf(_blogPost.where((bp) => bp.id == blogPost.id).first);
     _blogPost[index] = blogPost;
+    _inBlogPost.add(_blogPost);
+  }
+
+  void deleteBlogPost(int id) {
+    _blogPost.removeWhere((bp) => bp.id == id);
     _inBlogPost.add(_blogPost);
   }
 }

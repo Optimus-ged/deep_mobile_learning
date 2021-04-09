@@ -35,7 +35,15 @@ class BlogPostModify extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: isEditing ? Icon(Icons.delete) : Container(),
+            child: isEditing
+                ? IconButton(
+                    icon: Icon(Icons.delete),
+                    onPressed: () {
+                      _vm.deleteBlogPost(blogPost.id);
+                      Navigator.of(context).pop();
+                    },
+                  )
+                : Container(),
           )
         ],
       ),
@@ -69,7 +77,7 @@ class BlogPostModify extends StatelessWidget {
                 );
                 if (isEditing) {
                   // Editing
-                  _vm.updatePost(blogPost);
+                  _vm.updateBlogPost(blogPost);
                 } else {
                   // Creating
                   _vm.addBlogPost(blogPost);
