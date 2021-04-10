@@ -17,7 +17,7 @@ class ReaderBloc {
       _replayStream.stream.map((event) => _replayStream.values.join("\n"));
 
   void startReading() async {
-    // var content = await File("./monFichier.txt")
+    // var content = await File("")
     //     .openRead()
     //     .transform(utf8.decoder)
     //     .transform(LineSplitter())

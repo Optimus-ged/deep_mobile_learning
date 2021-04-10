@@ -22,32 +22,34 @@ class Read extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.only(left: 30.0),
-          child: TabBarView(children: [
-            Scaffold(
-              body: tabBody(
-                stream: readerBloc.dartStream,
-                desc: "Standard dart stream controller",
+          child: TabBarView(
+            children: [
+              Scaffold(
+                body: tabBody(
+                  stream: readerBloc.dartStream,
+                  desc: "Standard dart stream controller",
+                ),
               ),
-            ),
-            Scaffold(
-              body: tabBody(
-                stream: readerBloc.publishStream,
-                desc: "Publish controller",
+              Scaffold(
+                body: tabBody(
+                  stream: readerBloc.publishStream,
+                  desc: "Publish controller",
+                ),
               ),
-            ),
-            Scaffold(
-              body: tabBody(
-                stream: readerBloc.behaviorStream,
-                desc: "Behavior controller",
+              Scaffold(
+                body: tabBody(
+                  stream: readerBloc.behaviorStream,
+                  desc: "Behavior controller",
+                ),
               ),
-            ),
-            Scaffold(
-              body: tabBody(
-                stream: readerBloc.replayStream,
-                desc: "Replay controller",
+              Scaffold(
+                body: tabBody(
+                  stream: readerBloc.replayStream,
+                  desc: "Replay controller",
+                ),
               ),
-            ),
-          ]),
+            ],
+          ),
         ),
       ),
     );
