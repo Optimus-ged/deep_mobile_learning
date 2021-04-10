@@ -24,6 +24,8 @@ class ReaderBloc {
     //     .toList();
 
     for (var i = 1; i <= 30; i++) {
+      await Future.delayed(Duration(milliseconds: 4500));
+      
       print("$i Optimus ged");
 
       _dartStream.sink.add("$i Optimus ged");
@@ -31,7 +33,7 @@ class ReaderBloc {
       _behaviorStream.add("$i Optimus ged");
       _replayStream.add("$i Optimus ged");
 
-      await Future.delayed(Duration(milliseconds: 4500));
+      
     }
   }
 

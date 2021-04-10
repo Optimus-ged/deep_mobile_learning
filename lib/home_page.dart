@@ -49,22 +49,20 @@ class HomePage extends StatelessWidget {
 Widget _button({@required String title, double width, VoidCallback ontap}) {
   return InkWell(
     onTap: ontap,
-    child: Expanded(
-      child: Container(
-        height: 100,
-        alignment: Alignment.center,
-        width: width,
-        decoration: BoxDecoration(
-          color: Colors.green,
-          borderRadius: BorderRadius.circular(5),
-        ),
-        child: Text(
-          "$title",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+    child: Container(
+      height: 100,
+      alignment: Alignment.center,
+      width: width,
+      decoration: BoxDecoration(
+        color: Colors.green,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Text(
+        "$title",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
         ),
       ),
     ),
