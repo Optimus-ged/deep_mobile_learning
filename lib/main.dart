@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'chat_bot_exercise/chat_bot_home_page.dart';
 
+
 setUpLocator() {
   GetIt.I.registerLazySingleton(() => BlogPostViewModel());
 }
