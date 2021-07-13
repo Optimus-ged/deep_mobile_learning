@@ -101,8 +101,8 @@ class _BotHomePageState extends State<BotHomePage> {
                               "message": _msgController.text,
                             },
                           );
-                          response(_msgController.text);
-                          _msgController.clear();
+                          // response(_msgController.text);
+                          // _msgController.clear();
                         },
                       );
                     }
